@@ -8,14 +8,14 @@
 // export default App;
 
 import React, { Component } from "react";
-import Container from "./components/Container";
+import Container from "./Components/Container";
 // import Row from "./components/Row";
-import Col from "./components/Col";
-import EmployeeCard from "./components/EmployeeCard";
-import SearchForm from "./components/SearchForm";
+import Col from "./Components/Col";
+import EmployeeCard from "./Components/EmployeeCard";
+import SearchForm from "./Components/SearchForm";
 import employees from "./employees.json";
 // import ResultsList from "../ResultsList";
-// import API from "../utils/API";
+import API from "./utils/API";
 
 class App extends Component {
   state = {
