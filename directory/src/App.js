@@ -1,27 +1,80 @@
-import React, { Component } from "react";
-import EmployeeCard from "./Components/EmployeeCard";
-import API from "./utils/API";
-import HelloBootstrap from "./Components/HelloBootstrap";
+// import React from "react";
+// import Container from "./Components/Container";
 
+
+// function App() {
+//   return <Container />;
+// }
+// export default App;
+
+import React, { Component } from "react";
+import Container from "./components/Container";
+// import Row from "./components/Row";
+import Col from "./components/Col";
+import EmployeeCard from "./components/EmployeeCard";
+import SearchForm from "./components/SearchForm";
+import employees from "./employees.json";
+// import ResultsList from "../ResultsList";
+// import API from "../utils/API";
 
 class App extends Component {
-  // Setting this.state.employees to the employees json array
   state = {
-    search: "",
-    results: []
+    employees
   };
 
-  // Map over this.state.employees and render an EmployeeCard component for each employee object
+
+  // When this component mounts, search for the movie "The Matrix"
+  // componentDidMount() {
+  //     this.getEmployees();
+  // }
+
+  // getEmployees = query => {
+  //     API.search(query)
+  //         .then(res => this.setState({ result: res.results }))
+  //         .catch(err => console.log(err));
+  //     console.log(res.results);
+  // };
+
+  // handleInputChange = event => {
+  //     const value = event.target.value;
+  //     const name = event.target.name;
+  //     this.setState({
+  //         [name]: value
+  //     });
+  // };
+
+  // When the form is submitted, search the OMDB API for the value of `this.state.search`
+  // handleFormSubmit = event => {
+  //     event.preventDefault();
+  //     this.searchEmployees(this.state.search);
+  // };
+
   render() {
     return (
-      <div>  {this.state.employees.map(employee => (
-        <EmployeeCard
-          name={`${employee.name.first} ${employee.name.last}`} />
-      ))}
-      </div>
-    )
-  }
+      <Container>
+        <Col size="md-12">
+          <SearchForm
+            value={this.state.search}
+            handleInputChange={this.handleInputChange}
+            handleFormSubmit={this.handleFormSubmit}
+          />
 
+        </Col>
+        <Col size="md-12">
+          {this.state.employees.map(employee => (
+            <EmployeeCard
+              img={employee.picture.thumbnail}
+              key={employee.registered.date}
+              firstName={employee.name.first}
+              lastName={employee.name.last}
+              email={employee.email}
+              dob={employee.dob}
+            />
+          ))}
+        </Col>
+      </Container>
+    );
+  }
 }
 
 export default App;
