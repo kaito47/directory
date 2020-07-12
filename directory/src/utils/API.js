@@ -10,14 +10,4 @@ export default {
     }
 }
 
-// export default {
-//     getEmployees: async function () {
-//         try {
-//             const response = axios.get("https://randomuser.me/api/?results=300&nat=us");
-//             console.log(response);
-//             return response;
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     }
-// }
+
