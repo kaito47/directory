@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import EmployeeCard from "./Components/EmployeeCard";
-import API from "./utils/API"
+import API from "./utils/API";
+import HelloBootstrap from "./Components/HelloBootstrap";
+
 
 class App extends Component {
   // Setting this.state.employees to the employees json array
