@@ -15,6 +15,7 @@ import EmployeeCard from "./Components/EmployeeCard";
 import SearchForm from "./Components/SearchForm";
 // import ResultsList from "../ResultsList";
 import API from "./utils/API";
+import Axios from "axios";
 
 
 class App extends Component {
@@ -24,16 +25,22 @@ class App extends Component {
 
 
   // When this component mounts, search for the movie "The Matrix"
+  // componentDidMount() {
+  //   this.getEmployees();
+  // }
+
+  // getEmployees = query => {
+  //   API.search(query)
+  //     .then(employees => this.setState({ employees: employees.data }))
+  //     .catch(err => console.log(err));
+  // };
   componentDidMount() {
-    this.getEmployees();
+    Axios.get("https://randomuser.me/api/?results=300&nat=us").then(res => {
+      console.log(res);
+      this.setState({ employees: res.data })
+    });
+
   }
-
-  getEmployees = query => {
-    API.search(query)
-      .then(employees => this.setState({ employees: employees }))
-      .catch(err => console.log(err));
-  };
-
   handleInputChange = event => {
     const value = event.target.value;
     const name = event.target.name;
