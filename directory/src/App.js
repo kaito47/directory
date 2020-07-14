@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Container from "./Components/Container";
-// import Row from "./components/Row";
 import Col from "./Components/Col";
-// import EmployeeCard from "./Components/EmployeeCard";
 import SearchForm from "./Components/SearchForm";
 import ResultsList from "./Components/ResultsList";
 import Axios from "axios";
