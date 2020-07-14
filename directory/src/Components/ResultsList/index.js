@@ -2,14 +2,15 @@ import React from "react";
 
 // Creates list of employees from API call
 function ResultsList(props) {
+    console.log(props)
     return (
-        <ul className="list-group">
-            {props.results.map(result => (
-                <li className="list-group-item" key={result.id}>
-                    <img alt={result.title} className="img-fluid" src={result.images.original.url} />
-                </li>
-            ))}
-        </ul>
+        <li className="list-group-item">
+            {/* employee could be anything  */}
+            <img alt={props.firstName} className="img-fluid" src={props.img} />
+            <span>{`${props.firstName} + ${props.lastName}`}</span>
+            <span>{props.email}</span>
+            <span>{props.dob}</span>
+        </li>
     );
 }
 
